@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>xp scan</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/w3-css/4.1.0/w3.css" />
+
+<style>
+    /*--------------------------------------------------------------
+1.0 - BASE SITE STYLES
+--------------------------------------------------------------*/
+*,*:after,*:before {
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+}
+
+.cf:before,
+.cf:after {
+    content:"";
+    display:table;
+}
+.cf:after {
+    clear:both;
+}
+
+
+a,a:visited {
+  color:#fff
+}
+
+/*--------------------------------------------------------------
+2.0 - SEARCH FORM
+--------------------------------------------------------------*/
+.searchform {
+
+
+  left: 50%;
+  padding: 10px 5px;
+  position:relative;
+  margin: -22px 0 0 -170px;
+  top: 50%;
+  width:339px;
+  
+
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px
+}
+
+.searchform input, .searchform button {
+  float: left
+}
+.searchform input {
+  background:#fefefe;
+  border: none;
+  font:12px/12px 'HelveticaNeue', Helvetica, Arial, sans-serif;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 250px;
+  box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
+  border-radius: 9px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px
+}
+  .searchform input:focus {
+    outline: none;
+    box-shadow:0 0 4px #0d76be inset;
+    -moz-box-shadow:0 0 4px #0d76be inset;
+    -webkit-box-shadow:0 0 4px #0d76be inset;
+  }
+  .searchform input::-webkit-input-placeholder {
+    font-style: italic;
+    line-height: 15px
+  }
+
+  .searchform input:-moz-placeholder {
+    font-style: italic;
+    line-height: 15px
+  }
+
+.searchform button {
+  background: rgb(52,173,236);
+  background: -moz-linear-gradient(top, rgba(52,173,236,1) 0%, rgba(38,145,220,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(52,173,236,1)), color-stop(100%,rgba(38,145,220,1)));
+  background: -webkit-linear-gradient(top, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
+  background: -o-linear-gradient(top, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
+  background: -ms-linear-gradient(top, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
+  background: linear-gradient(to bottom, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#34adec', endColorstr='#2691dc',GradientType=0 );
+  border: none;
+  color:#fff;
+  cursor: pointer;
+  font: 13px/13px 'HelveticaNeue', Helvetica, Arial, sans-serif;
+  padding: 10px;
+  width:106px;
+  box-shadow: 0 0 2px #2692dd inset;
+  -moz-box-shadow: 0 0 2px #2692dd inset;
+  -webkit-box-shadow: 0 0 2px #2692dd inset;
+  border-radius: 9px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px;
+}
+  .searchform button:hover {
+    opacity:.9;
+  }
+
+ .contener-center {
+  width: 70vw;
+  margin-left:15%
+}
+ul {
+  text-align:left;
+}
+li {
+  word-break: break-all;
+}
+
+table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+  </style>
+
+
+<body>
+  <form method="POST" action="/vuln">
+    <button class="w3-display-topright w3-margin w3-button w3-white w3-border w3-border-red w3-round-large">VULNERABILITY SCAN </button>
+</form>
+
+<!-- Header -->
+<header class=" w3-red w3-center" style="padding:100px 16px">
+  <h1 class=" w3-jumbo"><b>YEHA</b><br> SCANNER</h1>
+  <p class="w3-large">Your security is only as strong as your weakest link</p>
+
+  <form class="searchform" method="POST" action="/">
+  <input type="text" name="url" placeholder="Enter url (https://example.com)">
+  <button type="submit">SCAN</button>
+  </form>
+</header>
+<br>
+<br>
+
+<center>
+  <h2><b>
+    Result
+    </b>
+  </h2>
+</center>
+<br>
+<br>
+
+<center class="contener-center" >
+<dev class="w3-btn w3-block w3-blue w3-padding-32">
+Web INFO</dev>
+<div id="Demo1" class=" w3-container w3-center ">
+  {% if ip_address != "" %}
+    <table>
+      <tr>
+        <th>INFO</th>
+        <th>DATA</th>
+      </tr>
+      {% if ip_address != none %}
+      <tr>
+        <td>Domain Name</td>
+        <td>{{ip_address.domain_name}}</td>
+      </tr>
+      <tr>
+        <td>Registrar</td>
+        <td>{{ip_address.registrar}}</td>
+      </tr>
+      <tr>
+        <td>creation date</td>
+        <td>{{ip_address.creation_date}}</td>
+      </tr>
+      <tr>
+        <td>expiration date</td>
+        <td>{{ip_address.expiration_date}}</td>
+      </tr>
+      <tr>
+        <td>emails</td>
+        <td>{{ip_address.emails}}</td>
+      </tr>
+      <tr>
+        <td>organization</td>
+        <td>{{ip_address.org}}</td>
+      </tr>
+      <tr>
+        <td>address</td>
+        <td>{{ip_address.address}}</td>
+      </tr>
+      <tr>
+        <td>city</td>
+        <td>{{ip_address.city}}</td>
+      </tr>
+      <tr>
+        <td>State</td>
+        <td>{{ip_address.state}}</td>
+      </tr>
+      <tr>
+        <td>Registrant postal code </td>
+        <td>{{ip_address.registrant_postal_code}}</td>
+      </tr>
+      <tr>
+        <td>country</td>
+        <td>{{ip_address.country}}</td>
+      </tr>
+      {% endif %}
+    </table>
+  {% else %}
+      <p>NO data</p>
+  {% endif %}
+</div>
+<br>
+<br>
+
+<button onclick="myFunction('Demo2')" class="w3-btn w3-block w3-blue w3-padding-32">Header Data</button>
+<div id="Demo2" class="w3-hide w3-container w3-center w3-pale-blue">
+  <h5>Headers that Should be included </h5>
+  <ul>
+  
+  {% for key in header_info %}
+    <li>{{key}}</li>
+  {% endfor %}
+  </ul>
+</div>
+<br>
+<br>
+
+<button onclick="myFunction('Demo3')" class="w3-btn w3-block w3-blue w3-padding-32">
+Port Scan</button>
+<div id="Demo3" class="w3-hide w3-container w3-center w3-pale-blue">
+  <table>
+    <tr>
+      <th>Port</th>
+      <th>State</th>
+      <th>Name</th>
+      <th>Version</th>
+    </tr>
+  {% for key,value in port_res.items() %}
+    <tr>
+      <td>{{key}}</td>
+      <td>{{value['state']}}</td>
+      <td>{{value['name']}}</td>
+      <td>{{value['version']}}</td>
+    </tr>
+  {% endfor %}
+
+  </table>
+</div>
+<br>
+<br>
+
+
+
+
+</div>
+<br>
+<br>
+
+
+<script>
+function myFunction(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+</center>
+
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+  <div class="w3-xlarge w3-padding-16">
+ </div>
+ <p>Powered by xp security</p>
+</footer>
+
+
+</body>
+
+</html>

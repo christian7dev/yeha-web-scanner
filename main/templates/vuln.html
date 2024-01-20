@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>yeha-Vuln</title>
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+
+  <style>
+    .w3-allerta {
+        font-family: "Allerta Stencil", Sans-serif;
+    }
+</style>
+</head>
+<body>
+    <form  action="/">
+        <button class="w3-display-topleft w3-margin w3-button w3-white w3-border w3-border-red w3-round-large">HOME</button>
+    </form>
+    <form method="POST" action="/vuln">
+        <button class="w3-display-topright w3-margin w3-wide w3-button w3-white w3-border w3-border-red w3-round-large">Refresh</button>
+    </form>
+
+
+        {% if card_color == 'blue' %}
+            <div class="w3-green w3-padding-64 w3-center w3-allerta">
+        {% else %}
+            <div class="w3-red w3-padding-64 w3-center w3-allerta">
+        {% endif %}
+
+
+        
+            <h1>RESULT</h1>
+            <h3> {{ card_text }} </h3>
+            <li class="w3-left-align">LINK : {{ link_address }} </li>
+            <li class="w3-left-align">PAYLOAD : {{ payload }}</li>
+        </div>
+
+            <!-- <div class="card-header">RESULT</div>
+            <div class="card-body">
+                <h5 class="card-title">{{ card_text }}</h5>
+            </div>
+            <table>
+                <tr>
+                    <th>LINK : </th>
+                    <th>{{ link_address }}
+                </tr>
+                <tr>
+                    <th>PAYLOAD : </th>
+                    <th>{{ payload }}
+                </tr>
+            </table>
+        </div> -->
+    </div>
+</body>
+</html>
